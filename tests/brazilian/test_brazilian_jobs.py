@@ -5,7 +5,7 @@ def test_brazilian_jobs():
     'return a dictionary list'
 
 
-result = read_brazilian_file('test/mocks/brazilians_jobs.csv')
+result = read_brazilian_file('tests/mocks/brazilians_jobs.csv')
 for job in result:
     assert 'salary' in job
     assert 'title' in job
