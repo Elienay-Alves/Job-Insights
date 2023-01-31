@@ -8,12 +8,13 @@ def get_max_salary(path: str) -> int:
 
 
 def get_min_salary(path: str) -> int:
-data = read(path)
-return min([int(job['min_salary']) for job in data if job['min_salary'].isdigit()])
+    data = read(path)
+    return min([int(job['min_salary']) for job in data if job['min_salary'].isdigit()])
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     existence_validation = "min_salary" in job and "max_salary" in job
+    
     if not existence_validation:
         raise ValueError
     min_salary = job["min_salary"]
