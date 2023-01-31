@@ -29,17 +29,16 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     return int(min_salary) <= int(salary) <= int(max_salary)
 
 def filter_by_salary_range(
-    jobs: List[dict],
-    salary: Union[str, int]
+    jobs: List[dict], salary: Union[str, int]
 ) -> List[Dict]:
-   list = []
-   try:
-        list = [
+    filtered_list = []
+    try:
+        filtered_list = [
             job
             for job in jobs
-            if int(job['min_salary']) <= int(salary) <= int(job['max_salary'])
-            ]
+            if int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
+        ]
     except TypeError:
-        raise ValueError('Error')
+        raise ValueError("Error")
     finally:
         return filtered_list
