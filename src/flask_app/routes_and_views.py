@@ -24,12 +24,6 @@ from src.insights.salaries import (
     get_max_salary,
 )
 
-from src.flask_app.more_insights import (
-    slice_jobs,
-    get_int_from_args,
-    build_jobs_urls,
-)
-
 bp = Blueprint("client", __name__, template_folder="templates")
 
 
@@ -86,11 +80,13 @@ def list_jobs():
 
     return render_template("list_jobs.jinja2", ctx=ctx)
 
+
 @bp.route('/job/<index>')
 def job(index):
     data = read('data/jobs.csv')
     job_one = get_job(data, index)
     return render_template('job.jinja2', job=job_one)
+
 
 def init_app(app: Flask):
     app.register_blueprint(bp)
