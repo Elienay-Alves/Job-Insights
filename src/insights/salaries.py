@@ -8,7 +8,7 @@ def get_max_salary(path: str) -> int:
         [
             int(job['max_salary'])
             for job in data
-            if job['max_salary'.isdigit()]
+            if job['max_salary'].isdigit()
         ]
     )
 
