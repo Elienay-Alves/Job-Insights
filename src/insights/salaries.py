@@ -35,7 +35,7 @@ def filter_by_salary_range(
    list = []
    try:
         list = [job for job in jobs if int(job['min_salary']) <= int(salary) <= int(job['max_salary'])]
-    except TypeError:
+        except TypeError:
         raise ValueError('Error')
-    finally:
+        finally:
         return filtered_list
