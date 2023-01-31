@@ -14,7 +14,7 @@ def get_min_salary(path: str) -> int:
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     existence_validation = "min_salary" in job and "max_salary" in job
-    
+
     if not existence_validation:
         raise ValueError
     min_salary = job["min_salary"]
@@ -35,7 +35,7 @@ def filter_by_salary_range(
    list = []
    try:
         list = [job for job in jobs if int(job['min_salary']) <= int(salary) <= int(job['max_salary'])]
-        except TypeError:
-            raise ValueError('Error')
-        finally:
-            return filtered_list
+    except TypeError:
+        raise ValueError('Error')
+    finally:
+        return filtered_list
